@@ -2,17 +2,20 @@
 
 # Compressing audio data in slide files
 
-Bitrate of audio files recorded with PowerPoint seems too large for "speech". This tool tries to shrink the size of pptx/ppsx files by making lower the bitrate of internal audio data.
+The bitrate of audio files recorded with PowerPoint seems too large for "speech". This tool tries to shrink the size of pptx/ppsx files by making lower the bitrate of internal audio data (m4a files).
 
 ## Installation
 
-1. Download [the archive of this project](https://github.com/hkawash/lecrec-tools/archive/master.zip), and extract the zip file.
+1. Create a main folder (for example, `lecrec-tools`), a subfolder `ppt-in`, and download the following script to the main folder.
+   - Windows: [compress_pptaudio-win.bat](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-win.bat)
+   - Mac/Linux: [compress_pptaudio-mac.sh](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-win.sh)
+   - For a simpler step, you can just download [the archive of this project](https://github.com/hkawash/lecrec-tools/archive/master.zip), and extract the zip file.
 2. Download ffmpeg from [this site (zeranoe)](https://ffmpeg.zeranoe.com/builds/), and extract the zip file.
    - Version: Select release build (4.2.2)
    - Architecture: Select your OS
    - Linking: Static
    - You can also download from [ffmpeg original site](https://www.ffmpeg.org/download.html)
-3. Copy ffmpeg.exe (or ffmpeg for Mac) from the extracted folder to the folder extracted in step 1.
+3. Copy ffmpeg.exe (or ffmpeg for Mac) from the extracted folder to the main folder created (or extracted) in step 1.
 
 If you already have ffmpeg installed, you can skip step 2 and 3. If have not set the environment variable (path) for ffmpeg yet, you can edit the script (the line with `PATH`) or simply follow step 3 (copy the ffmpeg executable file).
 
