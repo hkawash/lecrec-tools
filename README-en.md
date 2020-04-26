@@ -1,6 +1,8 @@
-# ffmpeg-tools
-
 [(Japanese)](README.md)
+
+# Compressing audio files in slides
+
+Bitrate of audio files recorded with PowerPoint seems too large for "speech". This tool tries to shrink the size of pptx/ppsx files by making lower the bitrate of internal audio files.
 
 ## Installation
 

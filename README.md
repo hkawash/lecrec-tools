@@ -1,10 +1,12 @@
-# ffmpeg-tools
-
 [(English)](README-en.md)
+
+# 音声付きスライドの圧縮など
+
+PowerPointで録音されるオーディオファイルは「音声」としてはビットレートが高いためどうしてもサイズが大きくなります．このツールは内部のオーディオファイルのビットレートを下げて，pptx/ppsxのファイルサイズを小さくします．
 
 ## インストール
 
-1. まず[このツールのzipファイル](https://github.com/hkawash/ffmpeg-tools/archive/master.zip)をダウンロードし、zipを展開します。
+1. まず[このツール(ffmpeg-tools)のzipファイル](https://github.com/hkawash/ffmpeg-tools/archive/master.zip)をダウンロードし、zipを展開します。
 2. ffmpeg を[こちらのサイト](https://ffmpeg.zeranoe.com/builds/)からダウンロードして展開します。
    - Version はリリース版（4.2.2など）でよいです。Architecture でOSを選びます。
    - Linking は Static のままとしておきます。
