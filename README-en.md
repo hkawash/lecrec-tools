@@ -7,8 +7,8 @@ The bitrate of audio files recorded with PowerPoint seems too large for "speech"
 ## Installation
 
 1. Create a main folder (for example, `lecrec-tools`), a subfolder `ppt-in`, and download the following script to the main folder.
-   - Windows: [compress_pptaudio-win.bat](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-win.bat)
-   - Mac/Linux: [compress_pptaudio-mac.sh](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-win.sh)
+   - Windows: <a href="https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-win.bat" download="compress_pptaudio-win.bat">compress_pptaudio-win.bat</a>
+   - Mac/Linux/Windows(bash): <a href="https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-mac.sh" download="compress_pptaudio-mac.sh">compress_pptaudio-mac.sh</a>
    - For a simpler step, you can just download [the archive of this project](https://github.com/hkawash/lecrec-tools/archive/master.zip), and extract the zip file.
 2. Download ffmpeg from [this site (zeranoe)](https://ffmpeg.zeranoe.com/builds/), and extract the zip file.
    - Version: Select release build (4.2.2)
