@@ -43,7 +43,7 @@ BITRATE=64k
 
 INPUT_DIR=ppt-in
 OUTPUT_DIR=ppt-out
-WORK_DIR=work
+WORK_DIR=__work__
 
 if [ ! -d $INPUT_DIR ]; then
     echo "Error: Folder [$INPUT_DIR] does not exist"
@@ -69,34 +69,36 @@ for f in $INPUT_DIR/*.pp[ts]x; do
     pptfname="${f##*/}"
     pptfbase="${pptfname%.*}"
     zipfname=$WORK_DIR/$pptfbase.zip
+    pptworkdir=$WORK_DIR/$pptfbase
     echo "$zipfname"
+    echo "$pptworkdir"
     cp "$f" "$zipfname"
 
     # Create folder for pptx content
-    if [ -d "$pptfbase" ]; then
-      rm -rf "$pptfbase"
+    if [ -d "$pptworkdir" ]; then
+      rm -rf "$pptworkdir"
     fi
-    mkdir "$pptfbase"
+    mkdir "$pptworkdir"
 
     # Expand zip file
-    unzip "$zipfname" -d "$pptfbase"
-    if [ ! -d "$pptfbase"/ppt/media ]; then
+    unzip "$zipfname" -d "$pptworkdir"
+    if [ ! -d "$pptworkdir"/ppt/media ]; then
         echo "Error: No media folder in pptx/ppsx"
         exit 1
     fi
 
     # Compress audio files
-    for a in "$pptfbase"/ppt/media/*.m4a; do
+    for a in "$pptworkdir"/ppt/media/*.m4a; do
         m4afname="${a##*/}"
         ffmpeg.exe -i "$a" -ab $BITRATE "$WORK_DIR/$m4afname"
         mv "$WORK_DIR/$m4afname" "$a"
     done
 
     # Archive again
-    (cd "$pptfbase" && zip -9 -r "../$OUTPUT_DIR/$pptfbase.zip" *)
+    (cd "$pptworkdir" && zip -9 -r "../../$OUTPUT_DIR/$pptfbase.zip" *)
     mv "$OUTPUT_DIR/$pptfbase.zip" "$OUTPUT_DIR/$pptfname"
 
     # Remove temoporary files/folders
     rm "$zipfname"
-    rm -rf "$pptfbase"
+    rm -rf "$pptworkdir"
 done

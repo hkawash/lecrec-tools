@@ -37,7 +37,7 @@ rem ===========================================================
 
 set INPUT_DIR=ppt-in
 set OUTPUT_DIR=ppt-out
-set WORK_DIR=work
+set WORK_DIR=__work__
 
 if not exist %INPUT_DIR% (
     echo Error: Folder [%INPUT_DIR%] does not exist
@@ -61,33 +61,34 @@ for %%f in (%INPUT_DIR%\*.pptx %INPUT_DIR%\*.ppsx) do (
     set pptfname=%%~nxf
     set pptfbase=%%~nf
     set zipfname=%WORK_DIR%\!pptfbase!.zip
+    set pptworkdir=%WORK_DIR%\!pptfbase!
     echo !zipfname!
     copy "%%f" "!zipfname!"
 
     rem Create folder for pptx content
-    if exist "!pptfbase!" rd /s /q "!pptfbase!"
-    mkdir "!pptfbase!"
+    if exist "!pptworkdir!" rd /s /q "!pptworkdir!"
+    mkdir "!pptworkdir!"
 
     rem Expand zip file
-    powershell -Command Expand-Archive -Path '!zipfname!' -DestinationPath '!pptfbase!'
-    if not exist "!pptfbase!"\ppt\media (
+    powershell -Command Expand-Archive -Path '!zipfname!' -DestinationPath '!pptworkdir!'
+    if not exist "!pptworkdir!"\ppt\media (
         echo Error: No media folder in pptx/ppsx
         pause
         exit /b 1
     )
 
     rem Compress audio files
-    for %%a in ("!pptfbase!"\ppt\media\*.m4a) do (
+    for %%a in ("!pptworkdir!"\ppt\media\*.m4a) do (
         set m4afname=%%~nxa
         ffmpeg -i "%%a" -ab %BITRATE% "%WORK_DIR%\!m4afname!"
         move /y "%WORK_DIR%\!m4afname!" "%%a"
     )
 
     rem Archive again
-    powershell -Command Compress-Archive -Path '!pptfbase!\*' -DestinationPath '%OUTPUT_DIR%\!pptfbase!.zip'
+    powershell -Command Compress-Archive -Path '!pptworkdir!\*' -DestinationPath '%OUTPUT_DIR%\!pptfbase!.zip'
     move /y "%OUTPUT_DIR%\!pptfbase!.zip" "%OUTPUT_DIR%\!pptfname!"
 
     rem Remove temoporary files/folders
     del "!zipfname!"
-    rd /s /q "!pptfbase!"
+    rd /s /q "!pptworkdir!"
 )
