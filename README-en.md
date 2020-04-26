@@ -21,10 +21,9 @@ This tool compresses audio-embedded (recorded) powerpoint files (pptx, ppsx) gen
 - Compress internal m4a audio files to 64kbps bitrate.
 - Does not compress images or videos.
 
-
 ### Usage
 
-1. Put pptx and/or ppsx files to `ppt-in` folder under `ffmpeg-tools-master` folder.
+1. Put pptx and/or ppsx files to `ppt-in` folder under `ffmpeg-tools-master` folder. (Backup the files, just in case.)
 2. Run the script file (<a href="#note1">See also Note</a>).
    - Windows: double click `compress_pptaudio-win.bat`
    - Mac (Linux, Windowsのbash): run `compress_pptaudio-mac.sh` from terminal
