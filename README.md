@@ -30,8 +30,8 @@ PowerPointで録音されるオーディオファイルは「音声」として�
 2. スクリプトを実行します（<a href="#note1">実行時の注意点</a>も参考にしてください）。
    - Windows: `compress_pptaudio-win.bat` をダブルクリックします。
    - Mac (Linux, Windowsのbash): ターミナルを開いて `compress_pptaudio-mac.sh` を実行します。
-   ![Windowsでの流れ](flow-win-ja.png)
 3. `ppt-out`フォルダに、圧縮された pptx や ppsx ファイルが出力されます。
+   ![Windowsでの流れ](flow-win-ja.png)
 
 
 <a name="note1"></a>
@@ -41,6 +41,7 @@ PowerPointで録音されるオーディオファイルは「音声」として�
 #### Windows
 
 - **ダウンロードしてから初めて実行するときは、「WindowsによってPCが保護されました」と表示されるので、「詳細情報」をクリックしてから「実行」を選んでください。**
+   ![Windowsでの警告](warning-win-ja.png)
 - 黒い画面が開きますが、勝手に閉じるまで待ってください。
 - 同時に何回も実行しないでください。
 
