@@ -11,14 +11,14 @@ The bitrate of audio files recorded with PowerPoint seems too large for "speech"
 
 1. Create a main folder (for example, `lecrec-tools`), a subfolder `ppt-in`, and download the following script to the main folder (use right-click > Save Link As...).
    - Windows: [compress_pptaudio-win.bat](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-win.bat)
-   - Mac/Linux: [compress_pptaudio-mac.sh](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-mac.sh)
+   - macOS/Linux: [compress_pptaudio-mac.sh](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-mac.sh)
    - For a simpler step, you can download [the archive of this project](https://github.com/hkawash/lecrec-tools/archive/master.zip), and extract the zip file.
 2. Download ffmpeg from [this site (zeranoe)](https://ffmpeg.zeranoe.com/builds/), and extract the zip file.
    - Version: Select release build (4.2.2)
    - Architecture: Select your OS
    - Linking: Static
    - You can also download from [ffmpeg original site](https://www.ffmpeg.org/download.html)
-3. Copy ffmpeg.exe (or ffmpeg for Mac) from the extracted folder to the main folder created (or extracted) in step 1.
+3. Copy ffmpeg.exe (or ffmpeg for macOS) from the extracted folder to the main folder created (or extracted) in step 1.
 
 If you already have ffmpeg installed, you can skip step 2 and 3. If have not set the environment variable (path) for ffmpeg yet, you can edit the script (the line with `PATH`) or simply follow step 3 (copy the ffmpeg executable file).
 
@@ -27,7 +27,7 @@ If you already have ffmpeg installed, you can skip step 2 and 3. If have not set
 1. Put pptx and/or ppsx files under the `ppt-in` folder. (Backup the files, just in case.)
 2. Run the script file (<a href="#note1">See also Note</a>).
    - Windows: double click `compress_pptaudio-win.bat`
-   - Mac (Linux, Windowsのbash): run `compress_pptaudio-mac.sh` from terminal
+   - macOS (Linux, Windowsのbash): run `compress_pptaudio-mac.sh` from terminal
 3. Output compressed files can be found in the `ppt-out` folder.
 
 <a name="note1"></a>
@@ -40,9 +40,9 @@ If you already have ffmpeg installed, you can skip step 2 and 3. If have not set
 - Wait until the opened (black) window is automatically closed.
 - Do not run the script again before the window is closed.
 
-#### Mac (Linux, Windows bash)
+#### macOS (Linux, Windows bash)
 
-1. Open bash (terminal). If you use Mac, type "terminal" from Launchpad or Spotlight search.
+1. Open bash (terminal). If you use macOS, type "terminal" from Launchpad or Spotlight search.
 1. Change the current folder by typing the following command.
     ```
     cd /Users/<user name>/Documents/lecrec-tools-master
