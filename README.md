@@ -9,6 +9,8 @@ PowerPointで録音されるオーディオファイルは「音声」として�
 
 ## インストール
 
+![Windowsでの流れ](fig/flow-win-ja.png)
+
 1. 適当なフォルダ（`lecrec-tools`とします）を作成し、中に`ppt-in`というフォルダを作成します。さらに、以下をダウンロードして置いておきます（右クリック > 名前を付けてリンク先を保存）。
    - Windows: [compress_pptaudio-win.bat](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-win.bat)
    - macOS/Linux: [compress_pptaudio-mac.sh](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-mac.sh)
@@ -31,7 +33,6 @@ PowerPointで録音されるオーディオファイルは「音声」として�
    - Windows: `compress_pptaudio-win.bat` をダブルクリックします。
    - macOS (Linux, Windowsのbash): ターミナルを開いて `compress_pptaudio-mac.sh` を実行します。
 3. `ppt-out`フォルダに、圧縮された pptx や ppsx ファイルが出力されます。
-   ![Windowsでの流れ](fig/flow-win-ja.png)
 
 
 <a name="note1"></a>
