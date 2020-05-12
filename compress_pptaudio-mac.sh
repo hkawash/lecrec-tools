@@ -20,8 +20,10 @@
 
 PATH="$PATH":"/mnt/c/opt/ffmpeg-4.2.2-win64-static/bin"
 
+FFMPEG=ffmpeg  # Windows なら .exe を付ける
+
 # Check commands
-if ! type ffmpeg.exe > /dev/null 2>&1; then
+if ! type $FFMPEG > /dev/null 2>&1; then
     echo "Error: Cannot find ffmpeg"
     exit 1
 fi
@@ -90,7 +92,7 @@ for f in $INPUT_DIR/*.pp[ts]x; do
     # Compress audio files
     for a in "$pptworkdir"/ppt/media/*.m4a; do
         m4afname="${a##*/}"
-        ffmpeg.exe -i "$a" -ab $BITRATE "$WORK_DIR/$m4afname"
+        $FFMPEG -i "$a" -ab $BITRATE "$WORK_DIR/$m4afname"
         mv "$WORK_DIR/$m4afname" "$a"
     done
 
