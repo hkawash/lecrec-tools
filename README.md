@@ -82,9 +82,9 @@ Powerpoint の「挿入 > オーディオ > オーディオの録音」で作成
 
 ## インストール
 
-以下を同じフォルダへダウンロード（.bat ファイルは使う方だけでOK）
+以下を同じフォルダへダウンロードします。二通りの使い方があり、それぞれ別の .bat ファイルになっています（.bat ファイルは使う方だけでOK）。
 
-- [hideaudio.ps1](https://github.com/hkawash/lecrec-tools/raw/master/hideaudio.ps1)：必ず必要
+- [hideaudio.ps1](https://github.com/hkawash/lecrec-tools/raw/master/hideaudio.ps1)：どちらを使う場合でも必要
 - [hideaudio-dnd.bat](https://github.com/hkawash/lecrec-tools/raw/master/hideaudio-dnd.bat)：pptxファイルをドラッグアンドドロップする場合
 - [hideaudio-folder.bat](https://github.com/hkawash/lecrec-tools/raw/master/hideaudio-folder.bat)：pptxファイルをppt-inフォルダに入れておく場合
 
