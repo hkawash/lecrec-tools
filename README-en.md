@@ -30,7 +30,7 @@ If you already have ffmpeg installed, you can skip step 2 and 3. If have not set
    - macOS (Linux, Windowsのbash): run `compress_pptaudio-mac.sh` from terminal
 3. Output compressed files can be found in the `ppt-out` folder.
 
-<a name="note1"></a>
+<a id="note1"></a>
 
 ### Note
 

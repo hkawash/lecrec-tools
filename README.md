@@ -1,5 +1,10 @@
 [(English)](README-en.md)
 
+- <a href="#compress">音声付きパワーポイントスライドの圧縮</a>
+- <a href="#hideaudio">挿入音声の「自動再生＆アイコン隠す」を一括設定</a>
+
+<a id="compress"></a>
+
 # 音声付きパワーポイントスライドの圧縮
 
 PowerPointで録音されるオーディオファイルは「音声」としてはビットレートが高いため、どうしてもサイズが大きくなります．このツールは内部のオーディオデータのビットレートを下げて，pptx/ppsxのファイルサイズを小さくします．「挿入 > オーディオ > オーディオの録音」で作成された音声付きパワーポイントを想定しています。
@@ -35,7 +40,7 @@ PowerPointで録音されるオーディオファイルは「音声」として�
 3. `ppt-out`フォルダに、圧縮された pptx や ppsx ファイルが出力されます。
 
 
-<a name="note1"></a>
+<a id="note1"></a>
 
 ### 実行時の注意点
 
@@ -65,3 +70,39 @@ PowerPointで録音されるオーディオファイルは「音声」として�
 
 - このスクリプトでは、内部の m4a ファイルを 64kbps にします。これ以外のビットレートにするには、スクリプト内の `BITRATE` を変更してください。
 - m4a 以外のオーディオファイルが挿入されていて、これを圧縮対象とするには、スクリプト内の `m4a` のあたりを変更してください。
+
+<a id="hideaudio"></a>
+
+# 挿入音声の「自動再生＆アイコン隠す」を一括設定
+
+Powerpoint の「挿入 > オーディオ > オーディオの録音」で作成し、動画(mp4)でエクスポートする（もしくは音声付きパワーポイントにする）には、各ページで、挿入されたスピーカーアイコンを選択し、以下の設定をする必要があります。これは結構面倒なので、全スライド一括で設定するスクリプトを用意します。こちらは PowerShell を使うので Windows用のみです。（Macでも PowerShell を入れれば動くかもしれません。）
+
+- 「再生 > 開始: 自動」を選択
+- 「再生 > スライドショーを実行中にサウンドのアイコンを隠す」にチェック
+
+## インストール
+
+以下を同じフォルダへダウンロード（.bat ファイルは使う方だけでOK）
+
+- [hideaudio.ps1](https://github.com/hkawash/lecrec-tools/raw/master/hideaudio.ps1)：必ず必要
+- [hideaudio-dnd.bat](https://github.com/hkawash/lecrec-tools/raw/master/hideaudio-dnd.bat)：pptxファイルをドラッグアンドドロップする場合
+- [hideaudio-folder.bat](https://github.com/hkawash/lecrec-tools/raw/master/hideaudio-folder.bat)：pptxファイルをppt-inフォルダに入れておく場合
+
+## 使い方
+
+### ドラッグアンドドロップを使う場合 (hideaudio-dnd.bat)
+
+   1. ファイルエクスプローラーで、pptx ファイル（複数可）を選択
+   2. hideaudio-dnd.bat にドラッグアンドドロップ
+
+### フォルダにいれておく場合 (hideaudio-folder.bat)
+
+   1. ppt-in という名前のフォルダを作成
+   2. ppt-in フォルダに pptx ファイルを入れる（複数可）
+   3. hideaudio-folder.bat をダブルクリック
+
+いずれの場合も、ppt-out というフォルダに変換後の pptx ファイルが出力されます。
+
+## 注意
+
+- MIT ライセンス (No warranty) です。結果の pptx は通常の方法で編集したものと異なり、壊れる可能性もゼロではありませんのでご了承ください。また、入力の pptx も念のためバックアップをとっておくことをお勧めします。
