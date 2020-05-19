@@ -24,5 +24,5 @@ for %%f in (%*) do (
         exit /b 1
     )  
 )
-echo done!
+echo done
 

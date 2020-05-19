@@ -38,5 +38,5 @@ for %%f in (%INPUT_DIR%\*.pptx %INPUT_DIR%\*.ppsx) do (
         exit /b 1
     )  
 )
-echo done!
+echo done
 
