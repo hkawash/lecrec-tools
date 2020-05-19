@@ -17,7 +17,7 @@
 #     5. > Set-ExecutionPolicy -Scope CurrentUser Restricted
 # --------------------------------------------------------------------
 
-# 1つのスライドxmlの設定を変更する
+# Change setting of one slide (xml)
 function ChangeAudioSetting ($xmlfile)
 {
     Write-Host -NoNewline "[$xmlfile] "
@@ -27,27 +27,27 @@ function ChangeAudioSetting ($xmlfile)
     $nsMgr.AddNamespace('p', $xmldoc.DocumentElement.GetAttribute('xmlns:p'))
     $nsMgr.AddNamespace('a', $xmldoc.DocumentElement.GetAttribute('xmlns:a'))
 
-    # オーディオファイルはあるか?
+    # Audio file exist?
     $checkaudio = $xmldoc.SelectSingleNode('//a:audioFile', $nsMgr)
     if ($checkaudio -eq $null){
         Write-Host 'This slide has no audio'
         return 1
     }
 
-    # 始めに見つかったオーディオを対象にする
+    # Set the first audio as the target
     $node1 = $xmldoc.SelectSingleNode('/p:sld/p:timing/p:tnLst/p:par/p:cTn[@nodeType="tmRoot"]/p:childTnLst/p:seq/p:cTn[@nodeType="mainSeq"]/p:childTnLst/p:par/p:cTn', $nsMgr)
     if ($node1 -eq $null){  # 「開始: クリック時」になっていれば対象外
         Write-Host 'This audio is not a default setting'
         return 1
     }
 
-    # --- 再生「開始: 一連のクリック動作」 -> 「開始: 自動」 ---
+    # Convert default setting to onBegin
     $childnode1 = $node1.SelectSingleNode('p:stCondLst', $nsMgr)
     if ($childnode1 -eq $null){
         Write-Host 'Cannot find sdContLst'
         return 1
     }
-    # cond 要素を追加
+    # Add cond
     $elm = $xmldoc.CreateElement('p:cond', $nsMgr.LookupNamespace('p'))  # namespace必要
     $elm.SetAttribute('evt', 'onBegin')
     $elm.SetAttribute('delay', '0')
@@ -55,13 +55,13 @@ function ChangeAudioSetting ($xmlfile)
     $childnode1.AppendChild($elm) | Out-Null
 
     $childnode2 = $node1.SelectSingleNode('p:childTnLst/p:par/p:cTn/p:childTnLst/p:par/p:cTn[@presetClass="mediacall" and @nodeType="clickEffect"]', $nsMgr)
-    if ($childnode2 -eq $null){  # 既に「開始: 自動」なら対象外
+    if ($childnode2 -eq $null){  # Skip if already auto begin
         Write-Host 'Cannot find clickEffect'
         return 1
     }
     $childnode2.SetAttribute('nodeType', 'afterEffect')
 
-    # --- スライドショーを実行中にサウンドのアイコンを隠す ---
+    # --- Hide audio icon ---
     $node2 = $node1.SelectSingleNode('/p:sld/p:timing/p:tnLst/p:par/p:cTn[@nodeType="tmRoot"]/p:childTnLst/p:audio/p:cMediaNode', $nsMgr)
     if ($node2 -ne $null){
         $node2.SetAttribute('showWhenStopped', '0')
@@ -77,9 +77,9 @@ function ChangeAudioSetting ($xmlfile)
 
 
 #=====================================================================
-# Main: ひとつのpptxファイルを処理する
+# Main: Input is one pptx file
 #=====================================================================
-if ($args.Length -ne 1) {  # pptx名を引数で指定
+if ($args.Length -ne 1) {  # pptx filename
     Write-Host 'Need one argument'
     exit 1
 }
