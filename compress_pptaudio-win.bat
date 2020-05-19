@@ -23,7 +23,7 @@ set PATH=%PATH%;%SYSTEMROOT%\System32;"C:\opt\ffmpeg-4.2.2-win64-static\bin"
 
 rem Check ffmpeg
 ffmpeg -version
-if not %ERRORLEVEL% == 0 (
+if %ERRORLEVEL% neq 0 (
     echo Error: Cannot find ffmpeg
     pause
     exit /b 1
@@ -46,7 +46,7 @@ if not exist %INPUT_DIR% (
 )
 
 dir %INPUT_DIR%\*pptx %INPUT_DIR%\*ppsx
-if not %ERRORLEVEL% == 0 (
+if %ERRORLEVEL% neq 0 (
     echo Error: No pptx/ppsx files in [%INPUT_DIR%] folder
     pause
     exit /b 1
@@ -60,17 +60,17 @@ for %%f in (%INPUT_DIR%\*.pptx %INPUT_DIR%\*.ppsx) do (
     echo %%f
     set pptfname=%%~nxf
     set pptfbase=%%~nf
-    set zipfname=%WORK_DIR%\!pptfbase!.zip
+    set zipfile=%WORK_DIR%\!pptfbase!.zip
     set pptworkdir=%WORK_DIR%\!pptfbase!
-    echo !zipfname!
-    copy "%%f" "!zipfname!"
+    echo !zipfile!
+    copy "%%f" "!zipfile!"
 
     rem Create folder for pptx content
     if exist "!pptworkdir!" rd /s /q "!pptworkdir!"
     mkdir "!pptworkdir!"
 
     rem Expand zip file
-    powershell -Command Expand-Archive -Path '!zipfname!' -DestinationPath '!pptworkdir!'
+    powershell -Command Expand-Archive -Path '!zipfile!' -DestinationPath '!pptworkdir!'
     if not exist "!pptworkdir!"\ppt\media (
         echo Error: No media folder in pptx/ppsx
         pause
@@ -89,6 +89,6 @@ for %%f in (%INPUT_DIR%\*.pptx %INPUT_DIR%\*.ppsx) do (
     move /y "%OUTPUT_DIR%\!pptfbase!.zip" "%OUTPUT_DIR%\!pptfname!"
 
     rem Remove temoporary files/folders
-    del "!zipfname!"
+    del "!zipfile!"
     rd /s /q "!pptworkdir!"
 )

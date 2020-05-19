@@ -18,9 +18,9 @@
 #     3. Compressed pptx/ppsx files can be found in "ppt-out" folder
 # ----------------------------------------------------------------------
 
-PATH="$PATH":"/mnt/c/opt/ffmpeg-4.2.2-win64-static/bin"
+# PATH="$PATH":"/mnt/c/opt/ffmpeg-4.2.2-win64-static/bin"  # PATHを設定するならここを編集
 
-FFMPEG=ffmpeg  # Windows なら .exe を付ける
+FFMPEG=./ffmpeg  # Windows なら .exe を付ける
 
 # Check commands
 if ! type $FFMPEG > /dev/null 2>&1; then

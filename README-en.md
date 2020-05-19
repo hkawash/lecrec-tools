@@ -45,14 +45,15 @@ If you already have ffmpeg installed, you can skip step 2 and 3. If have not set
 1. Open bash (terminal). If you use macOS, type "terminal" from Launchpad or Spotlight search.
 1. Change the current folder by typing the following command.
     ```
-    cd /Users/<user name>/Documents/lecrec-tools-master
+    $ cd /Users/<user name>/Documents/lecrec-tools-master
     ```
    (Press `return` after you typed. `<user name>` should be replaced by your user name of the PC.)
 1. Run the script by typing one of the following two commands.
     ```
-    ./compress_pptaudio-mac.sh
+    $ chmod 755 compress_pptaudio-mac.sh
+    $ ./compress_pptaudio-mac.sh
     ```
-    (`chmod 755 compress_pptaudio-mac.sh` may be needed before this step.)
+    (`chmod` is required only once after the download)
 
 ### Else
 

@@ -56,9 +56,10 @@ PowerPointで録音されるオーディオファイルは「音声」として�
     （上のコマンドを打ち込んだあと、最後に return を押します。途中でtabキーを押すとファイル名などが補完できます。`<ユーザ名>`のところには、PCで使っている自分のユーザ名を入れます。）
 1. ターミナルで以下を打ち込んで return キーを押し、スクリプトを実行します。
     ```
-    ./compress_pptaudio-mac.sh
+    $ chmod 755 compress_pptaudio-mac.sh
+    $ ./compress_pptaudio-mac.sh
     ```
-   （この前に `chmod 755 compress_pptaudio-mac.sh` が必要かもしれません。）
+   （一行目の`chmod`はダウンロード後に一回だけ必要）
 
 ### その他
 
