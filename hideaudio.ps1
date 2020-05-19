@@ -70,7 +70,15 @@ function ChangeAudioSetting ($xmlfile)
         return 1
     }
 
-    $xmldoc.Save($xmlfile)
+    $xmlSettings = New-Object System.Xml.XmlWriterSettings
+    $xmlSettings.Indent = $true
+    $xmlSettings.IndentChars = ""
+    $xmlSettings.NewLineChars = ""
+    $xmlSettings.Encoding = New-Object System.Text.UTF8Encoding($false)  # w/o BOM
+    $xmlWriter = [System.XML.XmlWriter]::Create($xmlfile, $xmlSettings)
+    $xmldoc.Save($xmlWriter)
+    $xmlWriter.Dispose()  # Flush and Close
+    
     Write-Host 'Setting changed!'
     return 0
 }
