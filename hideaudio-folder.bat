@@ -23,14 +23,14 @@ if not exist %INPUT_DIR% (
     exit /b 1
 )
 
-dir %INPUT_DIR%\*pptx %INPUT_DIR%\*ppsx
+dir %INPUT_DIR%\*pptx
 if %ERRORLEVEL% neq 0 (
     echo Error: No pptx/ppsx files in [%INPUT_DIR%] folder
     pause
     exit /b 1
 )
 
-for %%f in (%INPUT_DIR%\*.pptx %INPUT_DIR%\*.ppsx) do (
+for %%f in (%INPUT_DIR%\*.pptx) do (
     powershell -NoProfile -ExecutionPolicy Unrestricted .\hideaudio.ps1 %%f
     if %ERRORLEVEL% neq 0 (
         echo Error occurred while processing [%%f]
