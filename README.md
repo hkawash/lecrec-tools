@@ -21,7 +21,7 @@ PowerPointで録音されるオーディオファイルは「音声」として�
    - macOS/Linux: [compress_pptaudio-mac.sh](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-mac.sh)
    - 別の簡単な方法として、[このプロジェクト(lecrec-tools)のzip](https://github.com/hkawash/lecrec-tools/archive/master.zip)をダウンロードし、zipを展開してもよいです。
 2. ffmpeg を[こちらのサイト](https://ffmpeg.zeranoe.com/builds/)からダウンロードして展開します。
-   - Version はリリース版（4.2.2など）でよいです。
+   - Version はリリース版（2020.5.26時点では4.2.3）でよいです。（セキュリティアップデートがあったため、これより前のバージョンをお使いの場合は上げたほうが良いです。）
    - Architecture でOSを選びます。
    - Linking は Static のままとしておきます。
    - ダウンロードサイトは[ffmpeg の元サイト](https://www.ffmpeg.org/download.html)からたどってもよいです。

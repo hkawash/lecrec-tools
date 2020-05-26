@@ -14,7 +14,7 @@ The bitrate of audio files recorded with PowerPoint seems too large for "speech"
    - macOS/Linux: [compress_pptaudio-mac.sh](https://github.com/hkawash/lecrec-tools/raw/master/compress_pptaudio-mac.sh)
    - For a simpler step, you can download [the archive of this project](https://github.com/hkawash/lecrec-tools/archive/master.zip), and extract the zip file.
 2. Download ffmpeg from [this site (zeranoe)](https://ffmpeg.zeranoe.com/builds/), and extract the zip file.
-   - Version: Select release build (4.2.2)
+   - Version: Select release build (4.2.3 on 2020.5.26)
    - Architecture: Select your OS
    - Linking: Static
    - You can also download from [ffmpeg original site](https://www.ffmpeg.org/download.html)
